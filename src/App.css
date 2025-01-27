@@ -1,0 +1,200 @@
+/* src/App.css */
+
+/* Variáveis de Cor */
+:root {
+  --primary-color: #FFCA28; /* Amarelo suave */
+  --secondary-color: #FFFFFF; /* Branco */
+  --card-background: #FFFFFF; /* Branco para os cards */
+  --error-color: #E57373; /* Vermelho suave para erros */
+  --input-border: #E0E0E0; /* Borda cinza clara */
+  --input-focus-border: #FFCA28; /* Borda amarela ao focar */
+  --font-color: #424242; /* Texto cinza escuro */
+  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Reset de Margens e Padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  background-color: #000000;
+  font-family: var(--font-family);
+  color: var(--font-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container Principal */
+.app-container {
+  width: 100%;
+  max-width: 600px; /* Aumentei de 400px para 600px */
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  background-color: #1b1b1b;
+  padding: 50px 100px; /* Ajustei o padding para mais espaço interno */
+  border-bottom: 2px solid #FFCA28;
+  border-radius: 20px; /* Bordas levemente arredondadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Título */
+.card h1 {
+  text-align: center;
+  margin-bottom: 25px; /* Aumentei o espaçamento abaixo do título */
+  color: var(--primary-color);
+  font-size: 2rem; /* Aumentei ligeiramente para melhor visibilidade */
+  letter-spacing: 0.5px;
+}
+
+/* Formulário */
+.cep-form .input-group {
+  display: flex;
+  flex-direction: column; /* Layout vertical para simplicidade */
+  gap: 15px; /* Aumentei o espaçamento entre input e botão */
+}
+
+.cep-input {
+  padding: 12px 16px; /* Aumentei o padding para mais conforto */
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  font-size: 1rem; /* Mantive o tamanho da fonte adequado */
+  transition: border-color 0.3s ease;
+}
+
+.cep-input:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 5px var(--input-focus-border);
+}
+
+.submit-button {
+  padding: 12px 0; /* Padding vertical para melhor clique */
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #FFC107; /* Levemente mais escuro */
+}
+
+.submit-button:disabled {
+  background-color: #FFE082; /* Amarelo claro */
+  cursor: not-allowed;
+}
+
+/* Mensagem de Erro */
+.error-message {
+  margin-top: 20px; /* Aumentei o espaçamento acima da mensagem */
+  padding: 12px 15px;
+  background-color: #FFEAEA;
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.95rem; /* Pequeno aumento para melhor legibilidade */
+}
+
+/* Resultado */
+.cep-result {
+  margin-top: 25px; /* Aumentei o espaçamento acima do resultado */
+  padding: 20px 15px;
+  background-color: #101010; /* Fundo amarelo muito claro */
+  border-left:4px solid #ffe082;
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.cep-result h2 {
+  margin-bottom: 18px;
+  color: var(--primary-color);
+  font-size: 1.6rem; /* Aumentei ligeiramente para destaque */
+  text-align: center;
+  border-bottom: 1px solid #FFF8E1;
+  padding-bottom: 8px;
+}
+
+.result-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Aumentei o espaçamento entre os itens */
+}
+
+.result-grid div {
+  display: flex;
+}
+
+.result-grid span {
+  font-weight: bold;
+  color: #ffd553;
+  width: 120px; /* Aumentei a largura fixa para melhor alinhamento */
+  font-size: 0.95rem;
+}
+
+.result-grid p {
+  flex: 1;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+  color: #FFF;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .app-container {
+    max-width: 90%; /* Ajuste para telas menores */
+  }
+
+  .card {
+    padding: 25px 30px;
+  }
+
+  .card h1 {
+    font-size: 1.8rem;
+  }
+
+  .submit-button {
+    font-size: 0.95rem;
+  }
+
+  .cep-input {
+    font-size: 0.95rem;
+  }
+
+  .error-message {
+    font-size: 0.85rem;
+  }
+
+  .cep-result h2 {
+    font-size: 1.4rem;
+  }
+
+  .result-grid span,
+  .result-grid p {
+    font-size: 0.9rem;
+  }
+}
